@@ -20,8 +20,8 @@ $ ./ocserv-exporter
 
 ```sh
 $ curl -s http://127.0.0.1:8000/metrics
-occtl_status_scrape_error_total 4007
-occtl_users_scrape_error_total 4007
+occtl_status_scrape_error_total 0
+occtl_users_scrape_error_total 0
 vpn_active_sessions 29
 vpn_authentication_failures 32
 vpn_average_auth_time_seconds 0
