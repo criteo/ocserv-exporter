@@ -195,9 +195,7 @@ var (
 )
 
 // fakeClient allows to mock Exists() and RunCommand() func
-type fakeClient struct {
-	cmd Commander
-}
+type fakeClient struct{}
 
 func (c *fakeClient) Exists() (bool, error) {
 	return true, nil
