@@ -194,14 +194,14 @@ var (
 	}
 )
 
-// fakeClient allows to mock Exists() and RunCommand() func
-type fakeClient struct{}
+// mockOcctlCmd allows to mock Exists() and RunCommand() func
+type mockOcctlCmd struct{}
 
-func (c *fakeClient) Exists() (bool, error) {
+func (c *mockOcctlCmd) Exists() (bool, error) {
 	return true, nil
 }
 
-func (c *fakeClient) RunCommand(args ...string) ([]byte, error) {
+func (c *mockOcctlCmd) RunCommand(args ...string) ([]byte, error) {
 	var output []byte
 	command := strings.Join(args, " ")
 	switch command {
@@ -216,7 +216,7 @@ func (c *fakeClient) RunCommand(args ...string) ([]byte, error) {
 }
 
 func TestShowStatus(t *testing.T) {
-	c, err := NewClient((&fakeClient{}))
+	c, err := NewClient((&mockOcctlCmd{}))
 	require.NoError(t, err)
 	got, err := c.ShowStatus()
 	require.NoError(t, err)
@@ -224,7 +224,7 @@ func TestShowStatus(t *testing.T) {
 }
 
 func TestShowUsers(t *testing.T) {
-	c, err := NewClient((&fakeClient{}))
+	c, err := NewClient((&mockOcctlCmd{}))
 	require.NoError(t, err)
 	got, err := c.ShowUsers()
 	require.NoError(t, err)

@@ -74,23 +74,6 @@ func NewClient(cmd Commander) (*Client, error) {
 	return &Client{cmd: cmd}, nil
 }
 
-// Exists checks that occtl is installed on the localhost
-func (c *Client) Exists() (bool, error) {
-	_, err := exec.LookPath("occtl")
-	if err != nil {
-		return false, err
-	}
-	return true, nil
-}
-
-// RunCommand runs an occtl command and returns its output
-func (c *Client) RunCommand(args ...string) ([]byte, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	out, err := exec.CommandContext(ctx, "occtl", args...).Output()
-	return out, err
-}
-
 // ShowStatus decodes output from "occtl --json show status command"
 func (c *Client) ShowStatus() (*StatusMessage, error) {
 	status := &StatusMessage{}
@@ -115,4 +98,24 @@ func (c *Client) ShowUsers() ([]UsersMessage, error) {
 		return nil, fmt.Errorf("error while decoding json %v", err)
 	}
 	return users, nil
+}
+
+// OcctlCommander is a command wrapper to interact with occtl
+type OcctlCommander struct{}
+
+// Exists checks that occtl is installed on the localhost
+func (c *OcctlCommander) Exists() (bool, error) {
+	_, err := exec.LookPath("occtl")
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
+// RunCommand runs an occtl command and returns its output
+func (c *OcctlCommander) RunCommand(args ...string) ([]byte, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	out, err := exec.CommandContext(ctx, "occtl", args...).Output()
+	return out, err
 }

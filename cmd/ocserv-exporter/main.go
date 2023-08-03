@@ -117,7 +117,7 @@ func main() {
 		vpnUserRX,
 	)
 
-	occtlCli, err := occtl.NewClient(&occtl.Client{})
+	occtlCli, err := occtl.NewClient(&occtl.OcctlCommander{})
 	if err != nil {
 		log.Fatalf("Failed to initialize occtl client: %v", err)
 	}
