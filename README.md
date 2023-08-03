@@ -1,7 +1,7 @@
 # Prometheus ocserv exporter
 
 This exporter allows to expose statistics from occtl in Prometheus format.
-It simply parses the output of `occtl` tool to gather global and user statistics.
+It simply parses the output of `occtl` tool to gather VPN server and user statistics.
 
 # Usage
 
@@ -42,6 +42,14 @@ vpn_user_rx_bytes{device="vpns1",mtu="1434",remote_ip="203.0.113.1",username="a.
 vpn_user_tx_bytes{device="vpns0",mtu="1434",remote_ip="203.0.113.0",username="j.doe",vpn_ipv4="10.0.0.1",vpn_ipv6=""} 3.474418e+06
 vpn_user_tx_bytes{device="vpns1",mtu="1434",remote_ip="203.0.113.1",username="a.bob",vpn_ipv4="10.0.0.2",vpn_ipv6=""} 200146
 ```
+
+## Command line flags
+
+| Name     | Description                                                   |
+|----------|---------------------------------------------------------------|
+| interval | Delay between occtl scrape (default 30s)                      |
+| listen   | Prometheus HTTP listen IP and port (default "127.0.01:8000")  |
+
 ## Prometheus Configuration
 
 Example config:
