@@ -1,3 +1,8 @@
+[![Latest](https://img.shields.io/github/v/release/criteo/ocserv-exporter)](https://github.com/criteo/ocserv-exporter/releases)
+[![Go](https://img.shields.io/github/go-mod/go-version/criteo/ocserv-exporter)](https://github.com/criteo/ocserv-exporter)
+[![CI](https://github.com/criteo/ocserv-exporter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/criteo/ocserv-exporter/actions/workflows/ci.yml)
+[![GitHub](https://img.shields.io/github/license/criteo/ocserv-exporter)](https://github.com/criteo/ocserv-exporter/blob/main/LICENSE)
+
 # Prometheus ocserv exporter
 
 This exporter allows to expose statistics from occtl in Prometheus format.
