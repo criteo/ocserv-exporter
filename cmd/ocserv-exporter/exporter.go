@@ -43,6 +43,7 @@ func (e *Exporter) Run() error {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/metrics", e.metricsHandler)
 
+	log.Infof("Listening on http://%s", e.listenAddr)
 	return http.ListenAndServe(e.listenAddr, mux)
 }
 
