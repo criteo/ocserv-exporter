@@ -5,7 +5,7 @@
 
 # Prometheus ocserv exporter
 
-This exporter allows to expose statistics from occtl in Prometheus format.
+This exporter allows to expose statistics from `ocserv` in Prometheus format.
 It simply parses the output of `occtl` tool to gather VPN server and user statistics.
 
 # Usage
