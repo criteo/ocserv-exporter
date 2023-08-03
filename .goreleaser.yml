@@ -1,0 +1,45 @@
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: ocserv-exporter
+    binary: ocserv-exporter
+    main: ./cmd/ocserv-exporter
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+
+archives:
+  - name_template: "{{ .ProjectName }}_{{ .Version }}_{{- .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  use: github
+  sort: asc
+  abbrev: -1
+  filters:
+    exclude:
+      - "^ci:"
+      - "^chore:"
+      - "^docs:"
+      - "^test:"
+  groups:
+    - title: "Breaking changes"
+      regexp: '^.*?(\([[:word:]]+\))??!:.+$'
+      order: 0
+    - title: "Enhancements"
+      regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
+      order: 1
+    - title: "Fixes"
+      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
+      order: 2
+    - title: "Internal"
+      regexp: "^.+$"
+      order: 999
