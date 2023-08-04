@@ -17,7 +17,7 @@ Binaries can be download from the [Github releases](https://github.com/criteo/oc
 
 ## Running
 
-Start `ocserv-exporter` as a daemon or from CLI on the same host running `ocserv` (`occtl` must be installed):
+Start `ocserv-exporter` as a daemon or from CLI on the same host running `ocserv` (`use-occtl = true` must be set in ocserv configuration):
 
 ```sh
 $ ./ocserv-exporter
