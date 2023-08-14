@@ -67,3 +67,11 @@ scrape_configs:
         - 127.0.0.1:8000  # The ocserv exporter's real ip:port
     metrics_path: /metrics
 ```
+
+# Contributing
+
+Contributions are welcome! Before starting work on significant changes, please create an issue first.
+## Commit message
+
+Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary).
+Conventional commit messages is enforced by the CI.
