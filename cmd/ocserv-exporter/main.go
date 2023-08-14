@@ -12,11 +12,11 @@ import (
 var (
 	occtlStatusScrapeError = prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name: "occtl_status_scrape_error_total",
-		Help: "Total number of errors that occured when calling occtl show status.",
+		Help: "Total number of errors that occurred when calling occtl show status.",
 	}, []string{})
 	occtlUsersScrapeError = prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name: "occtl_users_scrape_error_total",
-		Help: "Total number of errors that occured when calling occtl show users.",
+		Help: "Total number of errors that occurred when calling occtl show users.",
 	}, []string{})
 	vpnActiveSessions = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "vpn_active_sessions",
