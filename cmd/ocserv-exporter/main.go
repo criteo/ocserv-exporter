@@ -18,6 +18,10 @@ var (
 		Name: "occtl_users_scrape_error_total",
 		Help: "Total number of errors that occurred when calling occtl show users.",
 	}, []string{})
+	vpnStartTime = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+		Name: "vpn_start_time_seconds",
+		Help: "Start time of ocserv since unix epoch in seconds.",
+	}, []string{})
 	vpnActiveSessions = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "vpn_active_sessions",
 		Help: "Current number of users connected.",
@@ -98,6 +102,7 @@ func main() {
 	prometheus.MustRegister(
 		occtlStatusScrapeError,
 		occtlUsersScrapeError,
+		vpnStartTime,
 		vpnActiveSessions,
 		vpnHandledSessions,
 		vpnIPsBanned,

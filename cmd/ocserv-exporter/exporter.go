@@ -65,6 +65,7 @@ func (e *Exporter) updateStatus() {
 		vpnIPsBanned.Reset()
 		return
 	}
+	vpnStartTime.WithLabelValues().Set(float64(status.RawUpSince))
 	vpnActiveSessions.WithLabelValues().Set(float64(status.ActiveSessions))
 	vpnHandledSessions.WithLabelValues().Set(float64(status.HandledSessions))
 	vpnIPsBanned.WithLabelValues().Set(float64(status.IPsBanned))
