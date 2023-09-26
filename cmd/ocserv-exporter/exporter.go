@@ -98,6 +98,7 @@ func (e *Exporter) updateUsers() {
 	for _, user := range users {
 		vpnUserTX.WithLabelValues(user.Username, user.RemoteIP, user.MTU, user.VPNIPv4, user.VPNIPv6, user.Device).Set(float64(user.RawTX))
 		vpnUserRX.WithLabelValues(user.Username, user.RemoteIP, user.MTU, user.VPNIPv4, user.VPNIPv6, user.Device).Set(float64(user.RawRX))
+		vpnUserStartTime.WithLabelValues(user.Username, user.RemoteIP, user.MTU, user.VPNIPv4, user.VPNIPv6, user.Device).Set(float64(user.RawConnectedAt))
 	}
 }
 

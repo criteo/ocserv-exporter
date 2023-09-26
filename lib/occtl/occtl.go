@@ -38,18 +38,19 @@ type StatusMessage struct {
 
 // UsersMessage is a structure to decode JSON returned by "occtl --json show users"
 type UsersMessage struct {
-	ID        int64  `json:"ID"`
-	Username  string `json:"Username"`
-	Vhost     string `json:"vhost"`
-	Device    string `json:"Device"`
-	MTU       string `json:"MTU"`
-	RemoteIP  string `json:"Remote IP"`
-	VPNIPv4   string `json:"IPv4"`
-	VPNIPv6   string `json:"IPv6"`
-	RawRX     int64  `json:"RX,string"`
-	RawTX     int64  `json:"TX,string"`
-	AverageRX string `json:"Average RX"`
-	AverageTX string `json:"Average TX"`
+	ID             int64  `json:"ID"`
+	Username       string `json:"Username"`
+	Vhost          string `json:"vhost"`
+	Device         string `json:"Device"`
+	MTU            string `json:"MTU"`
+	RemoteIP       string `json:"Remote IP"`
+	VPNIPv4        string `json:"IPv4"`
+	VPNIPv6        string `json:"IPv6"`
+	RawRX          int64  `json:"RX,string"`
+	RawTX          int64  `json:"TX,string"`
+	AverageRX      string `json:"Average RX"`
+	AverageTX      string `json:"Average TX"`
+	RawConnectedAt int64  `json:"raw_connected_at"`
 }
 
 // Commander is an interface implementing exec commands
