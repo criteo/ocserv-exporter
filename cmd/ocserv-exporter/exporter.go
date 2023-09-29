@@ -88,6 +88,7 @@ func (e *Exporter) updateUsers() {
 
 	vpnUserTX.Reset()
 	vpnUserRX.Reset()
+	vpnUserStartTime.Reset()
 	users, err := e.occtlCli.ShowUsers()
 	if err != nil {
 		log.Errorf("Failed to get users details: %v", err)
